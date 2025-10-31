@@ -3,7 +3,8 @@ import Footer from "./Components/Footer/Footer.jsx";
 import Navbar from "./Components/Navbar/Navbar.jsx";
 import Admin from "./Pages/Admin.jsx";
 
-export const backend_url = 'https://full-stack-e-commerce-4-2uw6.onrender.com';
+export const backend_url = 'https://full-stack-e-commerce-9q6t.onrender.com';
+
 export const currency = '₹';
 
 function App() {
@@ -19,3 +20,4 @@ function App() {
 }
 
 export default App;
+

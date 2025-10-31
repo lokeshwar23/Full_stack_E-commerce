@@ -10,7 +10,7 @@ import men_banner from "./Components/Assets/banner_mens.png";
 import kid_banner from "./Components/Assets/banner_kids.png";
 import LoginSignup from "./Pages/LoginSignup";
 
-export const backend_url = 'https://full-stack-e-commerce-4-2uw6.onrender.com';
+export const backend_url = 'https://full-stack-e-commerce-9q6t.onrender.com';
 
 // export const backend_url = 'http://localhost:4000';
 export const currency = '₹';
