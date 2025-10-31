@@ -1,0 +1,108 @@
+/* NewLoginSignup.css */
+
+/* Background Gradient */
+.new-loginsignup {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6c63ff, #9e2eff);
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+  }
+  
+  /* Glassmorphism Container */
+  .new-loginsignup-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Headings */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+  
+  /* Input Fields */
+  .new-loginsignup-fields input {
+    width: calc(100% - 20px); /* Ensure input is centered with even padding */
+    margin: 15px auto;       /* Add auto margins for proper centering */
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+    display: block;          /* Ensure block layout for consistent centering */
+    box-sizing: border-box;  /* Include padding and border in width calculation */
+  }
+  
+  /* Buttons */
+  button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  button.active-button {
+    background-color: #6c63ff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button.disabled-button {
+    background-color: #b3b3b3;
+    color: #eee;
+    cursor: not-allowed;
+  }
+  
+  /* Links */
+  p span {
+    color: #ffcc00;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  p span:hover {
+    text-decoration: underline;
+  }
+  
+  /* Agreement Section */
+  .new-loginsignup-agree {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center; /* Align checkbox and text vertically */
+    gap: 10px;           /* Add space between checkbox and label */
+  }
+  
+  .new-loginsignup-agree input {
+    margin: 0;           /* Remove default margins */
+    padding: 0;          /* Remove default padding */
+    width: 18px;         /* Set consistent checkbox size */
+    height: 18px;        /* Set consistent checkbox size */
+  }
+  
+  .new-loginsignup-agree label {
+    color: #ddd;
+    flex-grow: 1;        /* Ensure label takes remaining space for alignment */
+  }
+  
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 768px) {
+    .new-loginsignup-container {
+      padding: 20px;
+    }
+  }
+  

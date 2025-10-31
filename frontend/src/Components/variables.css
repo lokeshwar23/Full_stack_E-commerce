@@ -1,0 +1,8 @@
+:root {
+    --background-gradient: linear-gradient(135deg, #6c63ff, #9e2eff);
+    --primary-color: #ff4141;
+    --secondary-color: #ff8e8e;
+    --primary-text-color: #090909;
+    --secondary-text-color: #555;
+    --font-family: "Arial", sans-serif;
+}
