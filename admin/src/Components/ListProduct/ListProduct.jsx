@@ -40,7 +40,12 @@ const ListProduct = () => {
         {allproducts.map((e, index) => (
           <div key={index}>
             <div className="listproduct-format-main listproduct-format">
-              <img className="listproduct-product-icon" src={backend_url + e.image} alt="" />
+              {/* <img className="listproduct-product-icon" src={e.image} alt="" /> */}
+              <img className="listproduct-product-icon" src={
+                e.image.startsWith("http")
+                  ? e.image
+                  : `${backend_url}${e.image}`
+              } alt={e.name} />
               <p className="cartitems-product-title">{e.name}</p>
               <p>{currency}{e.old_price}</p>
               <p>{currency}{e.new_price}</p>

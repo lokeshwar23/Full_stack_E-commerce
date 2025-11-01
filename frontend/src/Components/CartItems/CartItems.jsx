@@ -25,7 +25,8 @@ const CartItems = () => {
         {
           return  <div>
                     <div className="cartitems-format-main cartitems-format">
-                      <img className="cartitems-product-icon" src={backend_url+e.image} alt="" />
+                      {/* <img className="cartitems-product-icon" src={backend_url+e.image} alt="" />  */}
+                      <img className="cartitems-product-icon" src={e.image} alt="" />
                       <p cartitems-product-title>{e.name}</p>
                       <p>{currency}{e.new_price}</p>
                       <button className="cartitems-quantity">{cartItems[e.id]}</button>

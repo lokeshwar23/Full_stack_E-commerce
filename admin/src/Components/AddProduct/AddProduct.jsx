@@ -29,8 +29,12 @@ const AddProduct = () => {
         Accept: 'application/json',
       },
       body: formData,
-    }).then((resp) => resp.json())
-      .then((data) => { dataObj = data });
+    })
+     .then((resp) => resp.json())
+    .then((data) => {
+      dataObj = data;
+      console.log("Uploaded Image URL:", data.image_url); // ✅ Debug line
+    });
 
     if (dataObj.success) {
       product.image = dataObj.image_url;

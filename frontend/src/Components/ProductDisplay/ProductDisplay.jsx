@@ -13,13 +13,18 @@ const ProductDisplay = ({product}) => {
     <div className="productdisplay">
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
+          {/* <img src={backend_url + product.image} alt="img" />
           <img src={backend_url + product.image} alt="img" />
           <img src={backend_url + product.image} alt="img" />
-          <img src={backend_url + product.image} alt="img" />
-          <img src={backend_url + product.image} alt="img" />
+          <img src={backend_url + product.image} alt="img" /> */}
+          <img src={ product.image} alt="img" />
+          <img src={ product.image} alt="img" />
+          <img src={product.image} alt="img" />
+          <img src={product.image} alt="img" />
         </div>
         <div className="productdisplay-img">
-          <img className="productdisplay-main-img" src={backend_url + product.image} alt="img" />
+          {/* <img className="productdisplay-main-img" src={backend_url + product.image} alt="img" /> */}
+          <img className="productdisplay-main-img" src={product.image} alt="img" />
         </div>
       </div>
       <div className="productdisplay-right">

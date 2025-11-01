@@ -1,3 +1,43 @@
+// const express = require("express");
+// const app = express();
+// const mongoose = require("mongoose");
+// const jwt = require("jsonwebtoken");
+// const multer = require("multer");
+// const path = require("path");
+// const cors = require("cors");
+// const port = process.env.PORT || 4000;
+
+// app.use(express.json());
+
+// app.use(cors());
+
+
+// const dbConnect = require("./config/database");
+// dbConnect();
+
+
+// //Image Storage Engine 
+// const storage = multer.diskStorage({
+//   destination: './upload/images',
+//   filename: (req, file, cb) => {
+//     return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+//   }
+// })
+// const upload = multer({ storage: storage })
+// app.post("/upload", upload.single('product'), (req, res) => {
+//   res.json({
+//     success: 1,
+//     image_url: `/images/${req.file.filename}`
+//   })
+// })
+
+
+// // Route for Images folder
+// app.use('/images', express.static('upload/images'));
+
+
+
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -5,6 +45,10 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const cloudinary = require("cloudinary").v2;              // ✅ fixed import
+const { CloudinaryStorage } = require("multer-storage-cloudinary"); // ✅ fixed import
+require("dotenv").config();
+
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
@@ -23,23 +67,36 @@ dbConnect();
 
 
 //Image Storage Engine 
-const storage = multer.diskStorage({
-  destination: './upload/images',
-  filename: (req, file, cb) => {
-    return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+// Set up storage for Cloudinary
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "ecommerce_uploads", // Folder name in your Cloudinary dashboard
+    allowed_formats: ["jpg", "png", "jpeg", "webp"]
   }
-})
-const upload = multer({ storage: storage })
-app.post("/upload", upload.single('product'), (req, res) => {
-  res.json({
-    success: 1,
-    image_url: `/images/${req.file.filename}`
-  })
-})
+});
 
 
-// Route for Images folder
-app.use('/images', express.static('upload/images'));
+const upload = multer({ storage });
+
+// Upload Route (no need to save locally)
+app.post("/upload", upload.single("product"), (req, res) => {
+  try {
+    res.json({
+      success: 1,
+      image_url: req.file.path || req.file.secure_url
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: 0, message: "Upload failed" });
+  }
+});
 
 
 // MiddleWare to fetch user from token
