@@ -75,13 +75,53 @@ It includes three major parts:
 git clone https://github.com/your-username/Full_Stack_Ecommerce.git
 cd Full_Stack_Ecommerce
 
-###cd backend
--**npm install
 
-### cd frontend
--**npm install
 
-###cd admin
--**npm install
+🔹 2. Install Dependencies
 
+👉 Backend
+```bash
+cd backend
+npm install
+
+
+👉 Frontend
+
+```bash
+cd ../frontend
+npm install
+
+
+👉 Admin Panel
+
+```bash
+cd ../admin
+npm install
+
+🔹 3. Setup Environment Variables
+
+Create .env files for each part (backend, frontend, and admin) and configure:
+
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+PORT=your_backend_port
+
+🔹 4. Run the Application
+
+👉 Backend
+
+```bash
+node index.js
+
+
+👉 Frontend
+
+```bash
+npm start
+
+
+👉 Admin
+
+```bash
+npm run dev
 
